@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
     delegate void AttackStyle();
     AttackStyle attackStyle;
 
+    public PlayerAudio playerAudioManager;
 
     void Start()
     {
@@ -40,9 +41,9 @@ public class Attack : MonoBehaviour
             bullet.transform.position = gameObject.transform.position +
                 transform.TransformDirection(new Vector3(0, 1.0f, 1.5f));
             bullet.transform.rotation = gameObject.transform.rotation;
-            bullet.SetActive(true);   
-        }
-        
+            bullet.SetActive(true);
+            playerAudioManager.PlayGunSound();
+        }     
     }
 
     private void Hit()
